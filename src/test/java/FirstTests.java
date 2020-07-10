@@ -1,9 +1,12 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.easyqa.qa.page.*;
 import com.easyqa.qa.page.util.CardData;
 import com.easyqa.qa.page.util.UserData;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.close;
@@ -14,10 +17,11 @@ public class FirstTests {
 
     private static final Object URL = open("https://app.geteasyqa.com/users/sign_in",LoginPage.class);
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
         Configuration.browser="chrome";
         Configuration.browserSize="1024x768";
+
     }
 
 
